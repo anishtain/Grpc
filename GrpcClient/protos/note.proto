@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+package note;
+
+service Note{
+	rpc GetNote (GetNoteRequest) returns (GetNoteResponse);
+	rpc GetNoteList (GetNoteListRequest) returns (stream GetNoteListResponse);
+}
+
+message GetNoteRequest{
+	int32 Id = 1;
+}
+
+message GetNoteResponse{
+	int32 Id = 1;
+	string Title = 2;
+	string Text = 3;
+	string CreateDate = 4;
+}
+
+message GetNoteListRequest{
+
+}
+
+message GetNoteListResponse{
+	int32 Id = 1;
+	string Title = 2;
+	string Text = 3;
+	string CreateDate = 4;
+}
